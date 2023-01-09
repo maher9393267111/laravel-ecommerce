@@ -22,6 +22,8 @@ class FrontEndController extends Controller
         return view('frontend.index', compact('sliders', 'trendingProducts' ,'newArrivalProducts' , 'featuredProducts'));
     }
 
+    
+
     public function categories()
     {
         $categories = Category::where('status', '0')->get();
@@ -30,13 +32,20 @@ class FrontEndController extends Controller
 
     public function products($category_slug)
     {
-        $category = Category::where('slug', $category_slug)->first();
-        if ($category) {
-            return view('frontend.collections.products.index', compact('category'));
-        } else {
-            return redirect()->back();
+        $category = Category::where('slug',$category_slug)->first();
+        if($category){
+            $products = $category->products()->get();
+
+     //       error_log('❌❌products--->❌❌' ,$products );
+           // Log::debug('Some message.');
+            return view('frontend.collections.products.index', compact('products','category'));
+
         }
+        // else{
+        //     return redirect->back();
+        // }
     }
+
 
     public function newArrival()
     {

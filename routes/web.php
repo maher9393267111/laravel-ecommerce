@@ -24,6 +24,7 @@ Auth::routes();
 Route::controller(App\Http\Controllers\Frontend\FrontendController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/collections', 'categories');
+    // specefic category All products
     Route::get('/collections/{category_slug}', 'products');
     Route::get('/collections/productDetails/{category_slug}/{product_slug}', 'productDetail');
     Route::get('thank-you', 'thankyou');
