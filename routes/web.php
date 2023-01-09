@@ -58,6 +58,20 @@ Route::controller(App\Http\Controllers\Admin\BrandController::class)->group(func
 });
 
 
+// Product Controller
+
+Route::controller(App\Http\Controllers\Admin\ProductController::class)->group(function () {
+    Route::get('/products',  'index');
+    Route::get('/products/create', 'create');
+    Route::post('/products', 'store');
+     Route::get('/products/{id}/edit', 'edit');
+     Route::put('/products/{id}', 'update');
+     Route::get('/products/delete/{id}', 'delete');
+     Route::get('/product-image/{product_image_id}/delete', 'destroyImage');
+});
+
+
+
 
 
 
