@@ -50,6 +50,23 @@
             <li class="nav-item {{Request::is('admin/products') ? 'active' :''}}"> <a class="nav-link" href=" {{url('admin/products')}} ">View Products</a></li>
           </ul>
         </div>
+
+        <li class="nav-item ">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic-color" aria-expanded="{{Request::is('admin/colors*') ? 'true' :'false'}}" aria-controls="ui-basic-color">
+            <i class="mdi mdi-plus-circle menu-icon"></i>
+            <span class="menu-title">Colors</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic-color">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item {{Request::is('admin/colors') ? 'active' :''}}"> <a class="nav-link" href=" {{url('admin/colors/create')}} ">Add Color</a></li>
+              <li class="nav-item {{Request::is('admin/colors') ? 'active' :''}}"> <a class="nav-link" href=" {{url('admin/colors')}} ">View Color</a></li>
+            </ul>
+          </div>
+        </li>
+
+
+
       </li>
       <li class="nav-item {{Request::is('admin/users') ? 'active' :''}}">
         <a class="nav-link" href=" {{url('admin/users')}} ">
